@@ -101,6 +101,8 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .menu-group-title h3{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.7rem);letter-spacing:.05em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
 .menu-group-title .note{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .menu-group-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.cat-obs{grid-column:1/-1;background:color-mix(in srgb,var(--accent) 10%,transparent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:12px;padding:.85rem 1rem;font-size:.84rem;color:var(--muted);line-height:1.55;margin:.2rem 0 1.2rem}
+.cat-obs b{color:var(--text);font-weight:700}
 .cat-photo{display:block;max-width:360px;width:100%;height:auto;border-radius:16px;margin:.2rem 0 1.4rem;border:1px solid var(--line);object-fit:contain}
 /* quebras visuais entre categorias */
 .menu-break{display:grid;grid-template-columns:.7fr 1fr;gap:clamp(1.6rem,3vw,3rem);align-items:center;padding:3rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:2rem 0 3rem}
@@ -154,8 +156,9 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 .foot p{color:var(--muted);font-size:.9rem;line-height:1.7}
 .foot a{color:var(--text);font-weight:600}
 .foot-credit{margin-top:2rem;font-size:.72rem;color:var(--muted);opacity:.6}
-.wa-float{position:fixed;right:20px;bottom:20px;z-index:45;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(37,211,102,.45);transition:transform .15s}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:49;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(37,211,102,.45);transition:transform .15s,bottom .35s cubic-bezier(.2,.8,.2,1)}
 .wa-float:hover{transform:scale(1.07)}.wa-float svg{width:30px;height:30px;fill:#fff}
+.cartbar.show~.wa-float,.cartbar.show+.wa-float{bottom:90px}
 .cartbar{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:560px;z-index:48;padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
 .cartbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-radius:16px;background:var(--fire);color:var(--on-accent);box-shadow:0 16px 40px -14px var(--accent-2);transform:translateY(160%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .cartbar.show .cartbar-inner{transform:none}
@@ -271,6 +274,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
       <a href="#cat-gourmet">Gourmet</a>
       <a href="#cat-best-dog-s">Best Dog&#x27;s</a>
       <a href="#cat-x-calotas">X Calotas</a>
+      <a href="#cat-x-calotas-especiais">X Calotas Especiais</a>
       <a href="#cat-porcoes">Porções</a>
       <a href="#cat-combos">Combos</a>
       <a href="#cat-adicionais">Adicionais</a>
@@ -415,44 +419,60 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
     </div>
     <div class="menu-group reveal" id="cat-x-calotas">
       <div class="menu-group-title"><h3>X Calotas</h3><span class="note">Pão Aro 30 · serve até 5</span></div>
-      <article class="dish" data-nome="Calota Burgão" data-preco="65.00" data-preco2="80.00" data-label1="Opção 1" data-label2="Opção 2">
-        <div class="dish-info"><div class="dish-top"><h4>Calota Burgão</h4></div><p>Hambúrguer, requeijão, molho caseiro, queijo e presunto</p></div>
+      <p class="cat-obs"><b>Todos os Calotas incluem:</b> pão, maionese caseira, batata palha, milho, ervilha, molho de tomate caseiro, requeijão, hambúrguer, queijo e presunto. Ovo somente no Tradicional e no Monstrão.</p>
+      <article class="dish" data-nome="Calota Burgão" data-preco="65.00" data-preco2="80.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
+        <div class="dish-info"><div class="dish-top"><h4>Calota Burgão</h4></div><p>Pão, maionese caseira, batata palha, molho de tomate caseiro, requeijão, hambúrguer, queijo e presunto</p></div>
         <div class="dish-side"></div>
       </article>
-      <article class="dish" data-nome="Calota Tradicional" data-preco="75.00" data-preco2="95.00" data-label1="Opção 1" data-label2="Opção 2">
-        <div class="dish-info"><div class="dish-top"><h4>Calota Tradicional</h4><span class="tag">Top</span></div><p>A clássica completa, com ovo</p></div>
+      <article class="dish" data-nome="Calota Tradicional" data-preco="75.00" data-preco2="95.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
+        <div class="dish-info"><div class="dish-top"><h4>Calota Tradicional</h4><span class="tag">Top</span></div><p>Com ovo. Base completa da casa.</p></div>
         <div class="dish-side"></div>
       </article>
-      <article class="dish" data-nome="Calota Frango" data-preco="80.00" data-preco2="100.00" data-label1="Opção 1" data-label2="Opção 2">
+      <article class="dish" data-nome="Calota Frango" data-preco="80.00" data-preco2="100.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
         <div class="dish-info"><div class="dish-top"><h4>Calota Frango</h4></div></div>
         <div class="dish-side"></div>
       </article>
-      <article class="dish" data-nome="Calota Calabresa" data-preco="80.00" data-preco2="100.00" data-label1="Opção 1" data-label2="Opção 2">
+      <article class="dish" data-nome="Calota Calabresa" data-preco="80.00" data-preco2="100.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
         <div class="dish-info"><div class="dish-top"><h4>Calota Calabresa</h4></div></div>
         <div class="dish-side"></div>
       </article>
-      <article class="dish" data-nome="Calota Bacon" data-preco="90.00" data-preco2="110.00" data-label1="Opção 1" data-label2="Opção 2">
+      <article class="dish" data-nome="Calota Bacon" data-preco="90.00" data-preco2="110.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
         <div class="dish-info"><div class="dish-top"><h4>Calota Bacon</h4></div></div>
         <div class="dish-side"></div>
       </article>
-      <article class="dish" data-nome="Calota Calabacon" data-preco="90.00" data-preco2="110.00" data-label1="Opção 1" data-label2="Opção 2">
-        <div class="dish-info"><div class="dish-top"><h4>Calota Calabacon</h4></div></div>
-        <div class="dish-side"></div>
-      </article>
-      <article class="dish" data-nome="Calota Franbacon" data-preco="90.00" data-preco2="110.00" data-label1="Opção 1" data-label2="Opção 2">
-        <div class="dish-info"><div class="dish-top"><h4>Calota Franbacon</h4></div></div>
-        <div class="dish-side"></div>
-      </article>
-      <article class="dish" data-nome="Calota Coração" data-preco="100.00" data-preco2="120.00" data-label1="Opção 1" data-label2="Opção 2">
+      <article class="dish" data-nome="Calota Coração" data-preco="100.00" data-preco2="120.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
         <div class="dish-info"><div class="dish-top"><h4>Calota Coração</h4></div></div>
         <div class="dish-side"></div>
       </article>
-      <article class="dish" data-nome="Calota Monstrão" data-preco="100.00" data-preco2="120.00" data-label1="Opção 1" data-label2="Opção 2">
+      <article class="dish" data-nome="Calota Calabacon" data-preco="90.00" data-preco2="110.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
+        <div class="dish-info"><div class="dish-top"><h4>Calota Calabacon</h4></div></div>
+        <div class="dish-side"></div>
+      </article>
+      <article class="dish" data-nome="Calota Franbacon" data-preco="90.00" data-preco2="110.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
+        <div class="dish-info"><div class="dish-top"><h4>Calota Franbacon</h4></div></div>
+        <div class="dish-side"></div>
+      </article>
+      <article class="dish" data-nome="Calota Monstrão" data-preco="100.00" data-preco2="120.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
         <div class="dish-info"><div class="dish-top"><h4>Calota Monstrão</h4><span class="tag">Bruto</span></div><p>Frango, coração, calabresa, salsicha, ovo e bacon</p></div>
         <div class="dish-side"></div>
       </article>
     </div>
 <div class="menu-break menu-break--wide reveal"><div class="media"><img src="assets/porcoes.jpg" alt="Porções da Best Burguer" loading="lazy"><video autoplay muted loop playsinline poster="assets/porcoes.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><source src="assets/porcoes.mp4" type="video/mp4"></video></div><div class="break-text"><span class="eyebrow">Pra dividir</span><h3>Porções que <em>alimentam</em></h3><p>Batata frita, porção mista, combo de galera — do tamanho da fome.</p><a class="btn" href="#cat-porcoes">Ver porções</a></div></div>
+    <div class="menu-group reveal" id="cat-x-calotas-especiais">
+      <div class="menu-group-title"><h3>X Calotas Especiais</h3><span class="note">Pão Aro 30 · serve até 5 · cebola na chapa +R$8</span></div>
+      <article class="dish" data-nome="Supreme" data-preco="100.00" data-preco2="120.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
+        <div class="dish-info"><div class="dish-top"><h4>Supreme</h4></div><p>Pão, maionese caseira, requeijão, alface, tomate, batata palha, milho na chapa, frango e bacon</p></div>
+        <div class="dish-side"></div>
+      </article>
+      <article class="dish" data-nome="Corabacon" data-preco="110.00" data-preco2="130.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
+        <div class="dish-info"><div class="dish-top"><h4>Corabacon</h4></div><p>Pão, maionese caseira, salada, grãos, ketchup, bacon e coração acebolados, queijo e presunto</p></div>
+        <div class="dish-side"></div>
+      </article>
+      <article class="dish" data-nome="Jambalaya" data-preco="95.00" data-preco2="115.00" data-label1="Só lanche" data-label2="Lanche + Fritas">
+        <div class="dish-info"><div class="dish-top"><h4>Jambalaya</h4></div><p>Pão, maionese caseira, salada, grãos, ketchup, calabresa e frango, requeijão, queijo e presunto</p></div>
+        <div class="dish-side"></div>
+      </article>
+    </div>
     <div class="menu-group reveal" id="cat-porcoes">
       <div class="menu-group-title"><h3>Porções</h3><span class="note">Pra dividir</span></div>
       <article class="dish" data-nome="Batata Frita Tradicional" data-preco="25.00">
@@ -685,7 +705,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
   function add(nome,preco){const c=cart.get(nome)||{nome,preco,qtd:0};c.qtd++;c.preco=preco;cart.set(nome,c);render();}
   function setQty(nome,d){const c=cart.get(nome);if(!c)return;c.qtd+=d;if(c.qtd<=0)cart.delete(nome);render();drawer();}
   function totals(){let n=0,t=0;cart.forEach(i=>{n+=i.qtd;t+=i.qtd*i.preco;});return{n,t};}
-  function render(){const{n,t}=totals();$("#cartCount").textContent=n+(n===1?" item":" itens");$("#cartTotal").textContent=brl(t);$("#cartbar").classList.toggle("show",n>0);}
+  function render(){const{n,t}=totals();$("#cartCount").textContent=n+(n===1?" item":" itens");$("#cartTotal").textContent=brl(t);const show=n>0;$("#cartbar").classList.toggle("show",show);const wf=$("#waFloat");if(wf)wf.style.bottom=show?"90px":"20px";}
 
   /* monta o lado de cada item (preço + botão). Suporta 2 tamanhos. */
   $$(".dish").forEach(d=>{
