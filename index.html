@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Burguer — Cardápio</title>
+<title>Best Burguer — Tapera, Floripa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 :root{
   /* ╔══ CORES (paleta hamburgueria) ══╗ */
   --bg:#0e0c0b; --bg-2:#161210; --surface:#1d1613; --text:#f3ece2; --muted:#ab9583;
-  --accent:#e23a26; --accent-2:#a81d11; --gold:#e0a83c;
+  --accent:#f5b81d; --accent-2:#d99000; --gold:#ffd766; --on-accent:#2a1d00;
   /* ╚════════════════════════════════╝ */
   --fire:linear-gradient(135deg,var(--accent),var(--accent-2));
   --line:color-mix(in srgb,var(--text) 12%,transparent);
@@ -40,20 +40,20 @@ header.scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop
 header .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{display:flex;align-items:center;gap:8px;font-family:var(--display);font-size:1.3rem;letter-spacing:.05em;text-transform:uppercase}
 .brand img{height:40px;width:auto}
+.brand img{height:34px;width:auto;object-fit:contain}
 .brand em{font-style:normal;color:var(--accent)}
 .nav-links{display:flex;align-items:center;gap:2rem}
 .nav-links a:not(.btn){font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);transition:color .2s}
 .nav-links a:not(.btn):hover{color:var(--text)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.3rem;border-radius:999px;font-weight:700;font-size:.86rem;background:var(--fire);color:#fff;box-shadow:0 10px 26px -10px var(--accent-2);transition:transform .15s}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.3rem;border-radius:999px;font-weight:700;font-size:.86rem;background:var(--fire);color:var(--on-accent);box-shadow:0 10px 26px -10px var(--accent-2);transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn-quiet{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
-.hero{min-height:100svh;display:flex;align-items:center;padding-top:5rem;overflow:hidden}
-.hero-media{position:absolute;inset:0;z-index:0;pointer-events:none;background:center/cover no-repeat var(--hero-foto,#000)}
+.hero{position:relative;min-height:86svh;display:flex;align-items:center;padding:7rem 0 4.5rem;overflow:hidden;background:radial-gradient(120% 80% at 82% 18%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 58%),var(--bg)}
+#embers{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;position:relative;z-index:3;width:100%}
+.hero-media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/11;background:#0a0807 center/cover no-repeat var(--xcalota,none);box-shadow:0 34px 80px -30px rgba(0,0,0,.9),0 0 70px -26px color-mix(in srgb,var(--accent) 48%,transparent)}
 .hero-media video{width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 86%,transparent) 30%,color-mix(in srgb,var(--bg) 40%,transparent) 62%,transparent 100%),linear-gradient(180deg,color-mix(in srgb,var(--bg) 55%,transparent) 0%,transparent 30%,transparent 55%,var(--bg) 99%)}
-#embers{position:absolute;inset:0;z-index:2;pointer-events:none}
-.hero .wrap{position:relative;z-index:3}
-.hero-inner{max-width:40rem}
+.hero-inner{max-width:38rem}
 .status{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 60%,transparent);font-size:.76rem;font-weight:600;margin-bottom:1.4rem}
 .status .dot{width:8px;height:8px;border-radius:50%;background:#888}
 .status.open{color:#cfeccf}.status.open .dot{background:#3ddc63;animation:pulse 2s infinite}
@@ -85,18 +85,31 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .feature{display:grid;grid-template-columns:.92fr 1.08fr;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 32%,transparent);border-radius:20px;background:linear-gradient(120deg,color-mix(in srgb,var(--accent-2) 16%,transparent),var(--surface) 56%);margin-bottom:3.4rem}
 .feature .ph{min-height:240px;background:center/cover no-repeat var(--feature-foto,color-mix(in srgb,var(--surface) 90%,transparent))}
 .feature-body{padding:clamp(1.6rem,3vw,2.4rem);display:flex;flex-direction:column;justify-content:center}
-.feature-body .selo{align-self:flex-start;font-size:.64rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#fff;background:var(--fire);padding:.35rem .8rem;border-radius:999px;margin-bottom:1rem}
+.feature-body .selo{align-self:flex-start;font-size:.64rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--on-accent);background:var(--fire);padding:.35rem .8rem;border-radius:999px;margin-bottom:1rem}
 .feature-body h3{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.1rem);text-transform:uppercase;line-height:1.08;margin-bottom:.7rem}
 .feature-body p{color:var(--muted);line-height:1.6;margin-bottom:1.2rem}
 .menu-nav{position:sticky;top:58px;z-index:30;display:flex;gap:.5rem;overflow-x:auto;padding:.8rem 0;margin-bottom:2.4rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(--bg-2);border-bottom:1px solid var(--line)}
 .menu-nav::-webkit-scrollbar{display:none}
-.menu-nav a{flex:0 0 auto;padding:.5rem 1.05rem;border-radius:999px;border:1px solid var(--line);font-size:.8rem;font-weight:700;color:var(--muted);white-space:nowrap;transition:color .2s,border-color .2s,background .2s}
-.menu-nav a:hover{color:var(--text);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.menu-nav a{flex:0 0 auto;padding:.55rem 1.15rem;border-radius:999px;border:2px solid var(--accent);font-size:.82rem;font-weight:800;color:var(--on-accent);background:var(--accent);white-space:nowrap;transition:opacity .2s,transform .15s;letter-spacing:.01em}
+.menu-nav a:hover{opacity:.82;transform:translateY(-1px)}
 .menu-group{margin-bottom:3rem;scroll-margin-top:128px}
 .menu-group-title{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem}
 .menu-group-title h3{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.7rem);letter-spacing:.05em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
 .menu-group-title .note{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .menu-group-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.cat-photo{width:100%;max-height:300px;object-fit:cover;border-radius:16px;margin:.2rem 0 1.4rem;border:1px solid var(--line)}
+/* quebras visuais entre categorias */
+.menu-break{display:grid;grid-template-columns:.7fr 1fr;gap:clamp(1.6rem,3vw,3rem);align-items:center;padding:3rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:2rem 0 3rem}
+.menu-break .phone{width:min(200px,100%);margin:0 auto;border-radius:20px;overflow:hidden;aspect-ratio:9/16;background:center/cover no-repeat var(--reserva,#000);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);box-shadow:0 16px 40px -16px rgba(0,0,0,.7)}
+.menu-break .phone video{width:100%;height:100%;object-fit:cover}
+.menu-break--wide{grid-template-columns:1fr 1fr}
+.menu-break--wide .media{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:9/16;max-height:340px;background:center/cover no-repeat}
+.menu-break--wide .media img,.menu-break--wide .media video{width:100%;height:100%;object-fit:cover}
+.menu-break--wide .media video{position:absolute;inset:0}
+.break-text h3{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;line-height:1;margin:.6rem 0 .8rem}
+.break-text h3 em{font-style:normal;color:var(--accent)}
+.break-text p{color:var(--muted);line-height:1.6;margin-bottom:1.2rem}
+@media (max-width:680px){.menu-break,.menu-break--wide{grid-template-columns:1fr}}
 .dish{display:flex;gap:1.2rem;align-items:flex-start;justify-content:space-between;padding:1.15rem .2rem;border-bottom:1px solid color-mix(in srgb,var(--accent) 9%,transparent);transition:background .25s}
 .dish:hover{background:color-mix(in srgb,var(--surface) 50%,transparent)}
 .dish-info{flex:1;min-width:0}
@@ -106,7 +119,7 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .dish-info p{color:var(--muted);font-size:.9rem;line-height:1.55;margin-top:.3rem}
 .dish-side{display:flex;align-items:center;gap:.9rem;flex-shrink:0}
 .dish .price{font-family:var(--display);font-size:1.1rem;white-space:nowrap}
-.add{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:1.5rem;line-height:1;background:var(--fire);color:#fff;box-shadow:0 8px 20px -8px var(--accent-2);transition:transform .15s}
+.add{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:1.5rem;line-height:1;background:var(--fire);color:var(--on-accent);box-shadow:0 8px 20px -8px var(--accent-2);transition:transform .15s}
 .add:hover{transform:translateY(-2px)}.add:active{transform:scale(.9)}
 /* dois tamanhos (Calotas) */
 .dual{display:flex;flex-direction:column;gap:.45rem;align-items:flex-end}
@@ -140,7 +153,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 .wa-float{position:fixed;right:20px;bottom:20px;z-index:45;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(37,211,102,.45);transition:transform .15s}
 .wa-float:hover{transform:scale(1.07)}.wa-float svg{width:30px;height:30px;fill:#fff}
 .cartbar{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:560px;z-index:48;padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
-.cartbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-radius:16px;background:var(--fire);color:#fff;box-shadow:0 16px 40px -14px var(--accent-2);transform:translateY(160%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.cartbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-radius:16px;background:var(--fire);color:var(--on-accent);box-shadow:0 16px 40px -14px var(--accent-2);transform:translateY(160%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .cartbar.show .cartbar-inner{transform:none}
 .cartbar .l{display:flex;flex-direction:column;line-height:1.15}
 .cartbar .l small{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;opacity:.8}
@@ -177,11 +190,15 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 .aviso{text-align:center;font-size:.82rem;color:var(--muted);margin-top:10px}
 @media (max-width:900px){
   .nav-links a:not(.btn){display:none}
-  .menu-head,.band .wrap,.depo,#horario .wrap,.feature{grid-template-columns:1fr;gap:2.4rem}
+  .hero-grid,.menu-head,.band .wrap,.depo,#horario .wrap,.feature{grid-template-columns:1fr;gap:2.4rem}
+  .hero-media{order:-1}
+  .hero{min-height:auto;padding:6rem 0 0}
+  .hero-strip{position:static;margin-top:2.4rem;backdrop-filter:none}
 }
 @media (min-width:760px){
   .menu-group{display:grid;grid-template-columns:1fr 1fr;column-gap:3rem;align-content:start}
-  .menu-group-title{grid-column:1/-1;margin-bottom:.4rem}
+  .menu-group-title,.cat-photo{grid-column:1/-1}
+  .menu-group-title{margin-bottom:.4rem}
   .dish{margin:0}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
@@ -191,8 +208,8 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 
 <header>
   <div class="wrap nav">
-    <!-- LOGO: troque por <img src="assets/logo.png" alt="Best Burguer"> quando tiver a logo nova -->
-    <a class="brand" href="#">BEST <em>BURGUER</em></a>
+    <!-- LOGO -->
+    <a class="brand" href="#"><img src="assets/logo.png" alt="Best Burguer"></a>
     <nav class="nav-links">
       <a href="#cardapio">Cardápio</a>
       <a href="#cat-x-calotas">Calotas</a>
@@ -203,19 +220,19 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 </header>
 
 <section class="hero">
-  <div class="hero-media" style="--hero-foto:url('assets/hero-foto.jpg')">
-    <video autoplay muted loop playsinline poster="assets/hero-foto.jpg"><source src="assets/hero.mp4" type="video/mp4"></video>
-  </div>
   <canvas id="embers"></canvas>
-  <div class="wrap">
+  <div class="wrap hero-grid">
     <div class="hero-inner">
       <span class="status" id="statusBadge"><span class="dot"></span><span id="statusText">…</span></span>
       <h1>O lanche do bairro, <em>no capricho</em></h1>
-      <p class="lead">Do X Burguer ao X Calota que serve até 5 — montado na chapa e mandado direto pro seu pedido, sem comissão de aplicativo.</p>
+      <p class="lead">100% artesanal. Montado na hora, entregue quentinho. Sem fila, sem aplicativo.</p>
       <div class="hero-ctas">
         <button class="btn" data-abrir-carrinho>Fazer pedido</button>
         <a class="btn btn-quiet" href="#cardapio">Ver o cardápio</a>
       </div>
+    </div>
+    <div class="hero-media" style="--xcalota:url('assets/xcalota.jpg')">
+      <video autoplay muted loop playsinline poster="assets/xcalota.jpg"><source src="assets/hero.mp4" type="video/mp4"></video>
     </div>
   </div>
   <div class="hero-strip"><div class="wrap">
@@ -232,12 +249,12 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 <section id="cardapio">
   <div class="wrap">
     <div class="menu-head">
-      <div><span class="eyebrow reveal">Cardápio</span><h2 class="title reveal reveal-d1">Monte o <em>seu</em></h2></div>
+      <div><span class="eyebrow reveal">O que sai daqui</span><h2 class="title reveal reveal-d1">O <em>cardápio</em></h2></div>
       <p class="reveal reveal-d2">Tradicionais, gourmet, dogs, porções e os Calotas — o lanchão que serve a galera toda.</p>
     </div>
 
     <div class="feature reveal">
-      <div class="ph" style="--feature-foto:url('assets/calota.jpg')"></div>
+      <div class="ph" style="--feature-foto:url('assets/xcalota.jpg')"></div>
       <div class="feature-body">
         <span class="selo">Campeão da casa</span>
         <h3>X Calota — serve até 5</h3>
@@ -353,8 +370,10 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
         <div class="dish-side"></div>
       </article>
     </div>
+<div class="menu-break reveal"><div class="phone" style="--reserva:url('assets/xcalota.jpg')"><video autoplay muted loop playsinline poster="assets/xcalota.jpg"><source src="assets/depoimento.mp4" type="video/mp4"></video></div><div class="break-text"><span class="eyebrow">Pra quem gosta de capricho</span><h3>Sabor que fala <em>por si</em></h3><p>Cada lanche montado na hora com ingredientes frescos, do pão ao recheio.</p></div></div>
     <div class="menu-group reveal" id="cat-best-dog-s">
       <div class="menu-group-title"><h3>Best Dog&#x27;s</h3><span class="note">Pão 21cm · prensado</span></div>
+      <img class="cat-photo" src="assets/dog.jpg" alt="Cachorro-quente da Best Burguer" loading="lazy">
       <article class="dish" data-nome="Dog Tradicional" data-preco="25.00">
         <div class="dish-info"><div class="dish-top"><h4>Dog Tradicional</h4></div><p>2 salsichas, milho, ervilha, vinagrete, purê, ovo de codorna, maionese e batata palha</p></div>
         <div class="dish-side"></div>
@@ -431,6 +450,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
         <div class="dish-side"></div>
       </article>
     </div>
+<div class="menu-break menu-break--wide reveal"><div class="media"><img src="assets/porcoes.jpg" alt="Porções da Best Burguer" loading="lazy"><video autoplay muted loop playsinline poster="assets/porcoes.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><source src="assets/porcoes.mp4" type="video/mp4"></video></div><div class="break-text"><span class="eyebrow">Pra dividir</span><h3>Porções que <em>alimentam</em></h3><p>Batata frita, porção mista, combo de galera — do tamanho da fome.</p><a class="btn" href="#cat-porcoes">Ver porções</a></div></div>
     <div class="menu-group reveal" id="cat-porcoes">
       <div class="menu-group-title"><h3>Porções</h3><span class="note">Pra dividir</span></div>
       <article class="dish" data-nome="Batata Frita Tradicional" data-preco="25.00">
@@ -563,15 +583,15 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
   </div>
 </section>
 
-<!-- ============ FAIXA 100% ARTESANAL (lanchão em alta) ============ -->
+<!-- ============ FAIXA: COMBO PRA DIVIDIR ============ -->
 <section class="band reveal">
   <div class="wrap">
-    <div class="media"><img src="assets/lanche-band.jpg" alt="Lanche artesanal da Best Burguer" loading="lazy"></div>
+    <div class="media"><img src="assets/combo.jpg" alt="Combo de lanches da Best Burguer pra dividir" loading="lazy"></div>
     <div>
-      <span class="eyebrow">A marca da casa</span>
-      <h2>100% <em>artesanal</em></h2>
-      <p>Um novo conceito em lanches: cada pedido é montado na hora, do pão ao último ingrediente. Comida de verdade, feita pra chegar quentinha na tua mesa.</p>
-      <button class="btn" data-abrir-carrinho>Quero o meu</button>
+      <span class="eyebrow">Fome de galera</span>
+      <h2>Feito pra <em>dividir</em></h2>
+      <p>Combo de lanches com fritas pra mesa toda — 100% artesanal, montado na hora e mandado quentinho. Quando a fome é grande, tem opção do tamanho dela.</p>
+      <a class="btn" href="#cat-combos">Ver os combos</a>
     </div>
   </div>
 </section>
@@ -590,8 +610,8 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
       </div>
     </div>
     <div class="depo-media reveal reveal-d1">
-      <div class="phone" style="--reserva:url('assets/calota.jpg')">
-        <video autoplay muted loop playsinline poster="assets/calota.jpg"><source src="assets/depoimento.mp4" type="video/mp4"></video>
+      <div class="phone" style="--reserva:url('assets/xcalota.jpg')">
+        <video autoplay muted loop playsinline poster="assets/xcalota.jpg"><source src="assets/depoimento.mp4" type="video/mp4"></video>
       </div>
     </div>
   </div>
@@ -619,7 +639,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 
 <footer>
   <div class="wrap foot">
-    <div><a class="brand" href="#">BEST <em>BURGUER</em></a><p>Hambúrguer 100% artesanal · Tapera, Floripa.</p></div>
+    <div><a class="brand" href="#"><img src="assets/logo.png" alt="Best Burguer"></a><p>100% artesanal · Tapera, Floripa.</p></div>
     <div><p id="footMeta"></p></div>
   </div>
   <div class="wrap"><p class="foot-credit">Site por você</p></div>
@@ -735,7 +755,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
   (function(){if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;const c=$("#embers");if(!c)return;const x=c.getContext("2d");let W,H,P=[];
     function size(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}size();window.addEventListener("resize",size);
     const N=Math.min(40,Math.floor(window.innerWidth/40));
-    function sp(p){p.x=Math.random()*W;p.y=H+Math.random()*50;p.r=Math.random()*1.8+.5;p.vy=Math.random()*.6+.2;p.vx=(Math.random()-.5)*.4;p.life=0;p.max=Math.random()*400+240;p.hue=Math.random()<.6?8:20;return p;}
+    function sp(p){p.x=Math.random()*W;p.y=H+Math.random()*50;p.r=Math.random()*1.8+.5;p.vy=Math.random()*.6+.2;p.vx=(Math.random()-.5)*.4;p.life=0;p.max=Math.random()*400+240;p.hue=Math.random()<.6?42:48;return p;}
     for(let i=0;i<N;i++){const p=sp({});p.y=Math.random()*H;P.push(p);}
     (function loop(){x.clearRect(0,0,W,H);P.forEach(p=>{p.life++;p.y-=p.vy;p.x+=p.vx+Math.sin(p.life*.015)*.2;if(p.y<-10||p.life>p.max)sp(p);const a=Math.max(0,1-p.life/p.max)*.5;x.beginPath();x.fillStyle=`hsla(${p.hue},90%,55%,${a})`;x.shadowColor=`hsla(${p.hue},90%,52%,${a})`;x.shadowBlur=7;x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill();});x.shadowBlur=0;requestAnimationFrame(loop);})();})();
 
