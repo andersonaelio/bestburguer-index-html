@@ -1,0 +1,6 @@
+Assets em uso no Best Burguer (já tratados pra web):
+  hero.mp4 / hero-foto.jpg  -> vídeo do hambúrguer gigante no hero (+ poster)
+  calota.jpg                -> foto do X Calota no card "Campeão da casa"
+  lanche-band.jpg           -> lanchão em alta na faixa "100% artesanal"
+  depoimento.mp4            -> vídeo dos ingredientes flutuando, na seção depoimento
+Pra trocar qualquer um: salve com o mesmo nome aqui que o site já puxa.
