@@ -48,9 +48,9 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .btn:hover{transform:translateY(-2px)}
 .btn-quiet{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
 .hero{min-height:100svh;display:flex;align-items:center;padding-top:5rem;overflow:hidden}
-.hero-media{position:absolute;inset:0;z-index:0;pointer-events:none;background:center/cover no-repeat var(--hero-foto,transparent);-webkit-mask-image:radial-gradient(120% 90% at 70% 30%,#000 35%,transparent 80%);mask-image:radial-gradient(120% 90% at 70% 30%,#000 35%,transparent 80%)}
-.hero-media video{width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:lighten}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 40%,var(--bg) 96%),radial-gradient(80% 60% at 20% 50%,color-mix(in srgb,var(--bg) 72%,transparent),transparent)}
+.hero-media{position:absolute;inset:0;z-index:0;pointer-events:none;background:center/cover no-repeat var(--hero-foto,#000)}
+.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 86%,transparent) 30%,color-mix(in srgb,var(--bg) 40%,transparent) 62%,transparent 100%),linear-gradient(180deg,color-mix(in srgb,var(--bg) 55%,transparent) 0%,transparent 30%,transparent 55%,var(--bg) 99%)}
 #embers{position:absolute;inset:0;z-index:2;pointer-events:none}
 .hero .wrap{position:relative;z-index:3}
 .hero-inner{max-width:40rem}
@@ -88,7 +88,11 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .feature-body .selo{align-self:flex-start;font-size:.64rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#fff;background:var(--fire);padding:.35rem .8rem;border-radius:999px;margin-bottom:1rem}
 .feature-body h3{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.1rem);text-transform:uppercase;line-height:1.08;margin-bottom:.7rem}
 .feature-body p{color:var(--muted);line-height:1.6;margin-bottom:1.2rem}
-.menu-group{margin-bottom:3rem;scroll-margin-top:80px}
+.menu-nav{position:sticky;top:58px;z-index:30;display:flex;gap:.5rem;overflow-x:auto;padding:.8rem 0;margin-bottom:2.4rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(--bg-2);border-bottom:1px solid var(--line)}
+.menu-nav::-webkit-scrollbar{display:none}
+.menu-nav a{flex:0 0 auto;padding:.5rem 1.05rem;border-radius:999px;border:1px solid var(--line);font-size:.8rem;font-weight:700;color:var(--muted);white-space:nowrap;transition:color .2s,border-color .2s,background .2s}
+.menu-nav a:hover{color:var(--text);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.menu-group{margin-bottom:3rem;scroll-margin-top:128px}
 .menu-group-title{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem}
 .menu-group-title h3{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.7rem);letter-spacing:.05em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
 .menu-group-title .note{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
@@ -175,6 +179,11 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
   .nav-links a:not(.btn){display:none}
   .menu-head,.band .wrap,.depo,#horario .wrap,.feature{grid-template-columns:1fr;gap:2.4rem}
 }
+@media (min-width:760px){
+  .menu-group{display:grid;grid-template-columns:1fr 1fr;column-gap:3rem;align-content:start}
+  .menu-group-title{grid-column:1/-1;margin-bottom:.4rem}
+  .dish{margin:0}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -237,6 +246,16 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
       </div>
     </div>
 
+    <nav class="menu-nav" id="menuNav">
+      <a href="#cat-tradicionais">Tradicionais</a>
+      <a href="#cat-acebolados">Acebolados</a>
+      <a href="#cat-gourmet">Gourmet</a>
+      <a href="#cat-best-dog-s">Best Dog&#x27;s</a>
+      <a href="#cat-x-calotas">X Calotas</a>
+      <a href="#cat-porcoes">Porções</a>
+      <a href="#cat-combos">Combos</a>
+      <a href="#cat-adicionais">Adicionais</a>
+    </nav>
     <div class="menu-group reveal" id="cat-tradicionais">
       <div class="menu-group-title"><h3>Tradicionais</h3><span class="note">Pão Aro 15</span></div>
       <article class="dish" data-nome="Misto Quente" data-preco="13.00">
