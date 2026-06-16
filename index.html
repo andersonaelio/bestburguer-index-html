@@ -13,7 +13,7 @@
 <style>
 :root{
   /* ╔══ CORES (paleta hamburgueria) ══╗ */
-  --bg:#0e0c0b; --bg-2:#161210; --surface:#1d1613; --text:#f3ece2; --muted:#ab9583;
+  --bg:#0a0908; --bg-2:#111009; --surface:#1a1310; --text:#f3ece2; --muted:#ab9583;
   --accent:#f5b81d; --accent-2:#d99000; --gold:#ffd766; --on-accent:#2a1d00;
   /* ╚════════════════════════════════╝ */
   --fire:linear-gradient(135deg,var(--accent),var(--accent-2));
@@ -48,11 +48,15 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.3rem;border-radius:999px;font-weight:700;font-size:.86rem;background:var(--fire);color:var(--on-accent);box-shadow:0 10px 26px -10px var(--accent-2);transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn-quiet{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
-.hero{position:relative;min-height:86svh;display:flex;align-items:center;padding:7rem 0 4.5rem;overflow:hidden;background:radial-gradient(120% 80% at 82% 18%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 58%),var(--bg)}
-#embers{position:absolute;inset:0;z-index:1;pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;position:relative;z-index:3;width:100%}
-.hero-media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/11;background:#0a0807 center/cover no-repeat var(--xcalota,none);box-shadow:0 34px 80px -30px rgba(0,0,0,.9),0 0 70px -26px color-mix(in srgb,var(--accent) 48%,transparent)}
+.hero{min-height:100svh;display:flex;align-items:center;padding-top:5rem;overflow:hidden;position:relative}
+.hero-media{position:absolute;inset:0;z-index:0;pointer-events:none}
 .hero-media video{width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(14,12,11,.88) 0%,rgba(14,12,11,.70) 38%,rgba(14,12,11,.28) 68%,transparent 100%),
+             linear-gradient(180deg,rgba(14,12,11,.5) 0%,transparent 28%,transparent 60%,rgba(14,12,11,.95) 100%)}
+#embers{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero .wrap{position:relative;z-index:3}
+.hero-inner{max-width:40rem}
 .hero-inner{max-width:38rem}
 .status{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 60%,transparent);font-size:.76rem;font-weight:600;margin-bottom:1.4rem}
 .status .dot{width:8px;height:8px;border-radius:50%;background:#888}
@@ -97,7 +101,7 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .menu-group-title h3{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.7rem);letter-spacing:.05em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
 .menu-group-title .note{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .menu-group-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
-.cat-photo{width:100%;max-height:300px;object-fit:cover;border-radius:16px;margin:.2rem 0 1.4rem;border:1px solid var(--line)}
+.cat-photo{display:block;max-width:360px;width:100%;height:auto;border-radius:16px;margin:.2rem 0 1.4rem;border:1px solid var(--line);object-fit:contain}
 /* quebras visuais entre categorias */
 .menu-break{display:grid;grid-template-columns:.7fr 1fr;gap:clamp(1.6rem,3vw,3rem);align-items:center;padding:3rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:2rem 0 3rem}
 .menu-break .phone{width:min(200px,100%);margin:0 auto;border-radius:20px;overflow:hidden;aspect-ratio:9/16;background:center/cover no-repeat var(--reserva,#000);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);box-shadow:0 16px 40px -16px rgba(0,0,0,.7)}
@@ -190,10 +194,8 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 .aviso{text-align:center;font-size:.82rem;color:var(--muted);margin-top:10px}
 @media (max-width:900px){
   .nav-links a:not(.btn){display:none}
-  .hero-grid,.menu-head,.band .wrap,.depo,#horario .wrap,.feature{grid-template-columns:1fr;gap:2.4rem}
-  .hero-media{order:-1}
-  .hero{min-height:auto;padding:6rem 0 0}
-  .hero-strip{position:static;margin-top:2.4rem;backdrop-filter:none}
+  .menu-head,.band .wrap,.depo,#horario .wrap,.feature{grid-template-columns:1fr;gap:2.4rem}
+  .hero{min-height:auto;padding-bottom:0}
 }
 @media (min-width:760px){
   .menu-group{display:grid;grid-template-columns:1fr 1fr;column-gap:3rem;align-content:start}
@@ -220,8 +222,11 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 </header>
 
 <section class="hero">
+  <div class="hero-media">
+    <video autoplay muted loop playsinline poster="assets/xcalota.jpg"><source src="assets/hero.mp4" type="video/mp4"></video>
+  </div>
   <canvas id="embers"></canvas>
-  <div class="wrap hero-grid">
+  <div class="wrap">
     <div class="hero-inner">
       <span class="status" id="statusBadge"><span class="dot"></span><span id="statusText">…</span></span>
       <h1>O lanche do bairro, <em>no capricho</em></h1>
@@ -230,9 +235,6 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
         <button class="btn" data-abrir-carrinho>Fazer pedido</button>
         <a class="btn btn-quiet" href="#cardapio">Ver o cardápio</a>
       </div>
-    </div>
-    <div class="hero-media" style="--xcalota:url('assets/xcalota.jpg')">
-      <video autoplay muted loop playsinline poster="assets/xcalota.jpg"><source src="assets/hero.mp4" type="video/mp4"></video>
     </div>
   </div>
   <div class="hero-strip"><div class="wrap">
