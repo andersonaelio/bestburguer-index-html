@@ -40,7 +40,7 @@ header.scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop
 header .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{display:flex;align-items:center;gap:8px;font-family:var(--display);font-size:1.3rem;letter-spacing:.05em;text-transform:uppercase}
 .brand img{height:40px;width:auto}
-.brand img{height:34px;width:auto;object-fit:contain}
+.brand img{height:38px;width:38px;object-fit:contain}
 .brand em{font-style:normal;color:var(--accent)}
 .nav-links{display:flex;align-items:center;gap:2rem}
 .nav-links a:not(.btn){font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);transition:color .2s}
@@ -81,7 +81,6 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .split ul{list-style:none;margin:1.3rem 0 2rem;display:grid;gap:.7rem}
 .split li{display:flex;gap:.6rem;align-items:baseline;font-weight:500}
 .split li::before{content:"●";color:var(--accent);font-size:.7rem}
-.phone{position:relative;width:min(320px,100%);margin:0 auto;border-radius:26px;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);box-shadow:0 24px 64px -22px rgba(0,0,0,.85);background:center/cover no-repeat var(--reserva,#000)}
 .phone video{width:100%;aspect-ratio:9/16;object-fit:cover}
 #cardapio{background:linear-gradient(180deg,var(--bg),var(--bg-2) 16%,var(--bg-2) 84%,var(--bg))}
 .menu-head{display:grid;grid-template-columns:1.3fr .9fr;gap:2rem;align-items:end;margin-bottom:3rem}
@@ -106,7 +105,7 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .cat-photo{display:block;max-width:360px;width:100%;height:auto;border-radius:16px;margin:.2rem 0 1.4rem;border:1px solid var(--line);object-fit:contain}
 /* quebras visuais entre categorias */
 .menu-break{display:grid;grid-template-columns:.7fr 1fr;gap:clamp(1.6rem,3vw,3rem);align-items:center;padding:3rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:2rem 0 3rem}
-.menu-break .phone{width:min(200px,100%);margin:0 auto;border-radius:20px;overflow:hidden;aspect-ratio:9/16;background:center/cover no-repeat var(--reserva,#000);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);box-shadow:0 16px 40px -16px rgba(0,0,0,.7)}
+.menu-break .phone{width:min(200px,100%);margin:0 auto;border-radius:20px;overflow:hidden;aspect-ratio:9/16;background:center/cover no-repeat var(--reserva,#000);-webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,#000 50%,transparent 100%);mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,#000 50%,transparent 100%)}
 .menu-break .phone video{width:100%;height:100%;object-fit:cover}
 .menu-break--wide{grid-template-columns:1fr 1fr}
 .menu-break--wide .media{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:9/16;max-height:340px;background:center/cover no-repeat}
@@ -144,7 +143,7 @@ header .nav{display:flex;align-items:center;justify-content:space-between;paddin
 .depo-facts{display:flex;flex-wrap:wrap;gap:.7rem 1.4rem;font-size:.92rem;color:var(--muted)}
 .depo-facts span{display:inline-flex;align-items:center;gap:.45rem}
 .depo-facts span::before{content:"●";color:var(--accent);font-size:.6rem}
-.phone{position:relative;width:min(280px,100%);margin:0 auto;border-radius:26px;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);box-shadow:0 24px 64px -22px rgba(0,0,0,.85);background:center/cover no-repeat var(--reserva,#000)}
+.phone{position:relative;width:min(280px,100%);margin:0 auto;border-radius:26px;overflow:hidden;background:center/cover no-repeat var(--reserva,#000);-webkit-mask-image:radial-gradient(ellipse 88% 88% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 88% 88% at 50% 50%,#000 55%,transparent 100%)}
 .phone video{width:100%;aspect-ratio:9/16;object-fit:cover}
 #horario .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
 .hours{display:grid;gap:.2rem}
@@ -156,9 +155,8 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 .foot p{color:var(--muted);font-size:.9rem;line-height:1.7}
 .foot a{color:var(--text);font-weight:600}
 .foot-credit{margin-top:2rem;font-size:.72rem;color:var(--muted);opacity:.6}
-.wa-float{position:fixed;right:20px;bottom:20px;z-index:49;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(37,211,102,.45);transition:transform .15s,bottom .35s cubic-bezier(.2,.8,.2,1)}
-.wa-float:hover{transform:scale(1.07)}.wa-float svg{width:30px;height:30px;fill:#fff}
-.cartbar.show~.wa-float,.cartbar.show+.wa-float{bottom:90px}
+.wa-float{position:fixed;right:18px;bottom:20px;z-index:49;width:44px;height:44px;border-radius:50%;background:rgba(37,211,102,.72);display:grid;place-items:center;box-shadow:0 6px 16px rgba(37,211,102,.2);transition:transform .2s,bottom .35s cubic-bezier(.2,.8,.2,1),background .2s,box-shadow .2s;backdrop-filter:blur(4px)}
+.wa-float:hover{transform:scale(1.08);background:#25D366;box-shadow:0 10px 26px rgba(37,211,102,.45)}.wa-float svg{width:24px;height:24px;fill:#fff}
 .cartbar{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:560px;z-index:48;padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
 .cartbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-radius:16px;background:var(--fire);color:var(--on-accent);box-shadow:0 16px 40px -14px var(--accent-2);transform:translateY(160%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .cartbar.show .cartbar-inner{transform:none}
@@ -214,12 +212,12 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 <header>
   <div class="wrap nav">
     <!-- LOGO -->
-    <a class="brand" href="#"><img src="assets/logo.png" alt="Best Burguer"></a>
+    <a class="brand" href="#cardapio"><img src="assets/logo.png" alt="Best Burguer"></a>
     <nav class="nav-links">
       <a href="#cardapio">Cardápio</a>
       <a href="#cat-x-calotas">Calotas</a>
       <a href="#horario">Horário</a>
-      <button class="btn" data-abrir-carrinho>Pedir agora</button>
+      <a class="btn" href="#cardapio">Ver cardápio</a>
     </nav>
   </div>
 </header>
@@ -661,7 +659,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:3.4rem 0 
 
 <footer>
   <div class="wrap foot">
-    <div><a class="brand" href="#"><img src="assets/logo.png" alt="Best Burguer"></a><p>100% artesanal · Tapera, Floripa.</p></div>
+    <div><a class="brand" href="javascript:void(0)" aria-label="Best Burguer"><img src="assets/logo.png" alt="Best Burguer"></a><p>100% artesanal · Tapera, Floripa.</p></div>
     <div><p id="footMeta"></p></div>
   </div>
   <div class="wrap"><p class="foot-credit">Site por você</p></div>
